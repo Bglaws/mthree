@@ -1,0 +1,80 @@
+Grep
+
+# 1. List all files that have the word "error" (case insensitive for all).
+grep -lir "error" .
+
+# 2. Count how many files do not have the word "error".
+grep -Lir "error" . | wc -l
+
+# 3. List all error messages of any file with "error" in it.
+grep -r "error" ./dir_6/file_64.log 
+
+# 4. Count how many times "error" appears in a file.
+grep -ir "error" ./dir_6/file_64.log | wc -l
+
+# 5. Count how many times "error" appears in all files.
+grep -ir "error" . | wc -l
+
+# 6. List every line with "error" or "info" in it from all files.
+grep -irE "error | info" .  OR grep -ire "error" -e "info" .
+
+# 7. List every line with "error" and "todays date mm/dd/yyyy" in the line, regardless of position.
+grep -ir "error" | grep -ir $(date +"%m/%d/%y") .
+
+# 8. List every unique error message.
+grep -ir "error" . | sort | uniq 
+
+# 9. Count how many times each message is repeated.
+grep -ir "error" . | sort | uniq -c
+
+# 10. Print error messages that are repeated more than 1 time
+grep -i "error" . | sort | uniq -d
+
+
+Awk
+
+# 1. Print the first and last column of each row, regardless of how many columns there are per row.
+
+# 2. Print the first and last rows of the file.
+
+# 3. Print every line with the word "Linux" in it.
+
+# 4. Print every line with the word "Linux" in the 3rd column.
+
+# 5. Print every record with a grade greater than 60.
+
+# 6. Print the sum of the grade column.
+
+# 7. Print the average of the grade column.
+
+# 8. Print the average of the grade column grouped by the course column.
+
+
+Sed
+
+# 1. Update the CSV to use a comma instead of a blank space
+
+# 2. Delete the last character of each line
+
+# 3. Replace the first occurrence of Linux with "Advanced Linux"
+
+# 4. Replace all occurrences of "C" to "C++" without modifying C-Sharp
+
+# 5. Remove empty lines
+
+
+Find
+
+# 1. Find all .log files
+
+# 2. Find all files larger than 1mb
+
+# 3. Find all empty directories and delete them
+
+# 4. Touch a file and find it by time (within the last 1 minute)
+
+# 5. Find all .sh files and make them executable. Then find them again and print their permissions
+
+# 6. Find all executable files that are not ending in .sh and remove executable from them. Confirm it worked.
+
+# 7. Find all 777 files and print them. Then update them to 644 and Verify it worked
